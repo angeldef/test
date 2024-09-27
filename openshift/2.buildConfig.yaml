@@ -1,0 +1,72 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: $APP_NAME
+  namespace: $NAME_SPACE
+  labels:
+    app: $APP_NAME
+    app.kubernetes.io/name: $APP_NAME
+    app.kubernetes.io/part-of: $APP_NAME_LABEL
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: '$APP_NAME:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      env:
+        - name: VITE_API_MANAGEMENT_URL
+          value: $VITE_API_MANAGEMENT_URL
+        - name: VITE_DECRYPT_SECRET_SERVICE_GET_TOKEN_MICROSOFT
+          valueFrom:
+            secretKeyRef:
+              name: $APP_SECRET_MSAL_AM
+              key: key_encrypt_token
+        - name: VITE_X_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: $APP_SECRET_MSAL_AM
+              key: x_api_key
+        - name: VITE_API_MANAGEMENT_URL
+          value: $VITE_API_MANAGEMENT_URL
+        - name: VITE_API_BASE_URL_CONFIG
+          value: $VITE_API_BASE_URL_CONFIG
+        - name: VITE_URL_EMAIL_INVITATION
+          value: $VITE_URL_EMAIL_INVITATION
+        - name: VITE_URL_EMAIL_INVITATION_SPORADICS
+          value: $VITE_URL_EMAIL_INVITATION_SPORADICS
+        - name: VITE_URL_PORTAL_OF_PORTALS
+          value: $VITE_URL_PORTAL_OF_PORTALS
+        - name: VITE_CREATE_NECESITY_SLUG
+          value: '$VITE_CREATE_NECESITY_SLUG'
+        - name: VITE_CONFIG_NECESITY_SLUG
+          value: '$VITE_CONFIG_NECESITY_SLUG'
+        - name: VITE_FORMALIZATION_NEGOTIATOR_SLUG
+          value: '$VITE_FORMALIZATION_NEGOTIATOR_SLUG'
+        - name: VITE_IMG_SLUG
+          value: '$VITE_IMG_SLUG'
+        - name: VITE_UPDATE_SUPPLIER_SLUG
+          value: '$VITE_UPDATE_SUPPLIER_SLUG'
+        - name: VITE_API_CATALOGS
+          value: '$VITE_API_CATALOGS'
+        - name: VITE_PURCHASE_ORDER_SLUG
+          value: '$VITE_PURCHASE_ORDER_SLUG'
+      dockerfilePath: $DOCKERFILE
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: >-
+        $GIT_URI
+      ref: $GIT_BRANCH
+    contextDir: /
+    sourceSecret:
+      name: $CREDENTIALS_SECRET_NAME
+  triggers:
+    - type: ConfigChange
+  runPolicy: Serial

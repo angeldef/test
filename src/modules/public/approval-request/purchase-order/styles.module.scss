@@ -1,0 +1,179 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  .right {
+    div {
+      color: $primary;
+    }
+
+    .email {
+      font-weight: bold;
+    }
+
+    .role {
+      text-align: right;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column-gap: 20px;
+  align-items: end;
+  margin-top: 10px;
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .card {
+      box-shadow: 0px 3px 6px #00000029;
+      background-color: white;
+      border-radius: 10px;
+      padding: 12px 20px 20px 20px;
+
+      .top {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-right: -20px;
+
+        .amount {
+          font-size: 18px;
+          font-family: $FSJoeyBold;
+          text-align: right;
+        }
+        .label {
+          color: $font_label;
+          font-size: 10px;
+          margin-top: -2px;
+          text-align: right;
+        }
+
+        .tag {
+          width: 125px;
+          color: white;
+          font-weight: bold;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 10px 0 15px;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+          height: 32px;
+
+          &.primary {
+            background-color: $primary;
+          }
+          &.secondary {
+            background-color: $secondary;
+          }
+        }
+      }
+
+      .title {
+        font-size: 16px;
+        font-family: $FSJoeyBold;
+        color: $primary;
+      }
+      .label {
+        color: $font_label;
+        font-size: 10px;
+        margin-top: -2px;
+      }
+
+      .info {
+        margin-top: 10px;
+        color: $font_label;
+        font-weight: bold;
+        font-size: 10px;
+      }
+      .description {
+        color: $primary;
+        font-size: 10px;
+        margin-top: 2px;
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+
+        .download {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+
+          .name {
+            color: $secondary;
+            font-family: $BarlowBold;
+          }
+          i {
+            cursor: pointer;
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+
+  &.centered {
+    justify-content: center;
+  }
+}
+
+.modalBody {
+  padding-bottom: 5px;
+  min-width: 300px;
+
+  .modalTitle {
+    text-align: left !important;
+  }
+
+  .titleSecondary {
+    color: $secondary;
+    font-family: $BarlowBold;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .bold {
+    color: black;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+  }
+}
+
+.message {
+  background-color: $secondary;
+  padding: 20px;
+  border-radius: 15px;
+  width: calc(50% - 5px);
+  margin-top: 10px;
+
+  span,
+  i {
+    color: white;
+    margin-right: 5px;
+  }
+}

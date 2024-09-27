@@ -1,0 +1,24 @@
+@import 'src/assets/styles/variables.scss';
+
+.customLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+
+  &.isPhone {
+    span {
+      position: absolute;
+      bottom: 27px;
+    }
+
+    input {
+      padding-left: 8px;
+    }
+  }
+}

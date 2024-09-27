@@ -1,0 +1,21 @@
+@import 'src/assets/styles/variables.scss';
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.htmlelement {
+  color: $primary !important;
+  font-family: $FSJoeyBold !important;
+  font-size: 18px !important;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  align-items: center;
+}

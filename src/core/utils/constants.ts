@@ -1,0 +1,15 @@
+export const apiManagementUrl = import.meta.env.VITE_API_MANAGEMENT_URL;
+export const apiBaseUrlConfig = import.meta.env.VITE_API_BASE_URL_CONFIG;
+export const urlEmailInvitation = import.meta.env.VITE_URL_EMAIL_INVITATION;
+export const urlEmailInvitationSporadics = import.meta.env.VITE_URL_EMAIL_INVITATION_SPORADICS;
+export const urlPortalOfPortals = import.meta.env.VITE_URL_PORTAL_OF_PORTALS;
+export const createNecesityFormIO = import.meta.env.VITE_CREATE_NECESITY_SLUG;
+export const configNecesityFormIO = import.meta.env.VITE_CONFIG_NECESITY_SLUG;
+export const formalizationNegotiator = import.meta.env.VITE_FORMALIZATION_NEGOTIATOR_SLUG;
+export const imgFormIO = import.meta.env.VITE_IMG_SLUG;
+export const xApiKey = import.meta.env.VITE_X_API_KEY;
+export const apiCatalogs = import.meta.env.VITE_API_CATALOGS;
+export const updateSupplierFormIo = import.meta.env.VITE_UPDATE_SUPPLIER_SLUG;
+export const purchaseOrderSlug = import.meta.env.VITE_PURCHASE_ORDER_SLUG;
+export const naturalPerson = '1';
+export const legalPerson = '2';

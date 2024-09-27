@@ -1,0 +1,49 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  cursor: pointer;
+  padding: 5px 0;
+  text-decoration: underline;
+  color: $primary;
+  margin-bottom: 14px;
+  z-index: 100;
+  position: relative;
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  .right {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.title {
+  display: flex;
+  p {
+    color: $primary;
+    font-family: $BarlowBold;
+    font-size: 18px;
+  }
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

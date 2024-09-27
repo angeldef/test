@@ -1,0 +1,46 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  display: flex;
+  gap: 2px;
+
+  .icon {
+    background-color: #e3f3fd;
+    color: #7ac5e8;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 5px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .box {
+    background-color: #e3f3fd;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 6px 8px;
+    width: 200px;
+    position: relative;
+    cursor: pointer;
+
+    p {
+      font-size: 14px;
+      color: #7ac5e8;
+    }
+
+    .bold {
+      font-family: $BarlowBold;
+    }
+  }
+}
+
+.popper {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 10px 20px;
+  width: 200px;
+}

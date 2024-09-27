@@ -1,0 +1,17 @@
+export type FormComponentTypeIdentifier =
+  | 'textfield'
+  | 'password'
+  | 'email'
+  | 'select'
+  | 'textarea'
+  | 'number'
+  | 'money'
+  | 'radio'
+  | 'checkbox'
+  | 'button'
+  | 'columns'
+  | 'datagrid'
+  | 'file'
+  | 'datetime'
+  | 'htmlelement'
+  | 'currency';

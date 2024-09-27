@@ -1,0 +1,161 @@
+@import 'src/assets/styles/variables.scss';
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 9px;
+  background-color: white;
+  padding: 14px;
+  margin-bottom: 20px;
+
+  .left {
+    display: flex;
+    gap: 12px;
+
+    .nameContainer {
+      border-right: 2px solid $secondary;
+      padding-right: 10px;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .quotation {
+        font-family: $FSJoeyRegular;
+        span {
+          color: $secondary;
+          font-family: $FSJoeyBold;
+        }
+      }
+
+      .name {
+        font-size: 16px;
+        color: $primary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      p {
+        color: black;
+        font-size: 11px;
+      }
+    }
+
+    .infoContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      p {
+        color: black;
+        font-size: 11px;
+      }
+      span {
+        color: $font_label;
+        font-size: 11px;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 10px;
+
+    .sendEmail {
+      background-color: $light-gray;
+      border-radius: 30px;
+      padding: 20px;
+      gap: 10px;
+      height: 25px;
+      width: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      span {
+        max-width: 0px;
+        overflow: hidden;
+        margin-right: -10px;
+        transition: all 0.1s;
+        font-size: 13px;
+      }
+
+      i {
+        color: gray;
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: $secondary;
+        width: auto;
+
+        span {
+          max-width: fit-content;
+          margin-right: 0px;
+          color: white;
+        }
+
+        i {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.tabTitle {
+  text-align: left;
+  font-family: $BarlowSemiBold;
+  font-size: 12px;
+}
+
+.tabSubtitle {
+  font-size: 9px;
+  text-transform: none;
+}
+
+.tags {
+  gap: 6px;
+  display: flex;
+  justify-content: flex-end;
+
+  .tag {
+    background-color: $red;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 30px;
+    font-size: 11px;
+
+    &.errorTag {
+      background-color: $red;
+    }
+    &.successTag {
+      background-color: $green;
+    }
+  }
+
+  i {
+    margin-right: 4px;
+  }
+}
+
+.modalBody {
+  padding: 20px 20px 0 20px;
+  min-width: 250px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .modalTitle {
+    text-align: left !important;
+    color: $secondary !important;
+  }
+
+  .buttons {
+    margin: 12px 0;
+  }
+}

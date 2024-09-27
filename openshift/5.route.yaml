@@ -1,0 +1,27 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: $APP_NAME
+  namespace: $NAME_SPACE
+  labels:
+    app: $APP_NAME
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  path: /interno
+  host: $APP_NAME-$NAME_SPACE.$OPENSHIFT_DOMAIN
+  to:
+    kind: Service
+    name: $APP_NAME
+    weight: 100
+  port:
+    targetPort: $HTTP_PORT-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: $APP_NAME-$NAME_SPACE.$OPENSHIFT_DOMAIN
+      routerName: default
+      wildcardPolicy: None

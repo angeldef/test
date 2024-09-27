@@ -1,0 +1,47 @@
+@import 'src/assets/styles/variables.scss';
+
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+  max-width: 300px;
+
+  .title {
+    font-size: 14px;
+    color: $secondary;
+    font-family: $BarlowBold;
+    margin-bottom: 20px;
+  }
+
+  .supply {
+    margin: 10px 0;
+
+    .name {
+      color: black;
+      font-family: $BarlowBold;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .info {
+    padding: 0 25px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .cancel {
+      font-weight: bold;
+      color: $font_label;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import 'src/assets/styles/variables.scss';
+
+.searchRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  align-items: center;
+}
+
+.buttons {
+  text-align: right;
+  margin-top: 10px;
+}

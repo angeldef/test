@@ -1,0 +1,146 @@
+@import 'src/assets/styles/variables.scss';
+
+.layout {
+  gap: 20px;
+  height: 100%;
+  display: flex;
+
+  &.contraer {
+    .left {
+      flex: 0 0 14%;
+
+      .top {
+        justify-content: center;
+        h3,
+        .dots {
+          display: none;
+        }
+      }
+
+      .infoContainer {
+        display: none;
+      }
+    }
+  }
+
+  .left {
+    transition: flex 0.3s;
+    flex: 0 0 22%;
+    overflow: hidden;
+    min-height: calc(100vh - 20px - 20px - 70px);
+    height: min-content;
+    position: sticky;
+    top: 20px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      .back {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          margin-bottom: 0;
+          font-size: 14px !important;
+        }
+
+        .circle {
+          background-color: $light-gray;
+          padding: 10px;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            color: $secondary;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .dots {
+        color: $font_label;
+        cursor: pointer;
+      }
+    }
+
+    .amount {
+      font-weight: bold;
+      color: $primary;
+      font-size: 17px;
+      font-family: $BarlowBold;
+    }
+
+    .negociationInfo {
+      margin-top: 2px;
+      p,
+      span {
+        color: $font_normal;
+        font-size: 11px;
+      }
+
+      span {
+        font-style: italic;
+      }
+
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 180px;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin: 3px 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1 0 auto;
+      padding: 15px;
+      padding-bottom: 4px;
+    }
+
+    .bottom {
+      background-color: $light-gray;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+
+      span,
+      i {
+        color: $secondary;
+        margin: 0 2px;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    width: 1px;
+  }
+}

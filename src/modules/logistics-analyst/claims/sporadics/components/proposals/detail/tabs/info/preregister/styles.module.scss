@@ -1,0 +1,60 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  background-color: white;
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .title {
+      font-size: 12px;
+    }
+
+    .value {
+      text-transform: uppercase;
+    }
+  }
+
+  .person {
+    margin-top: 10px;
+    background-color: #ffdfdf;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: flex;
+
+    span,
+    i,
+    .cell {
+      color: $red;
+      font-size: 11px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 10px;
+    }
+    .cell {
+      padding: 0 8px;
+      border-left: 1px solid $red;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

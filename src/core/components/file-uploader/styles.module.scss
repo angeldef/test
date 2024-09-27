@@ -1,0 +1,133 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  background-color: white;
+
+  .icon {
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 20px;
+      color: $font_label;
+    }
+  }
+
+  .info {
+    flex: 1 0 auto;
+    color: $font_label;
+    padding: 0 10px;
+
+    .name {
+      display: flex;
+      align-items: center;
+      max-width: 285px;
+      font-weight: bold;
+      font-family: $BarlowBold;
+      color: $font_label;
+      font-size: 12px;
+
+      &.contract {
+        max-width: none;
+      }
+
+      p {
+        font-weight: bold;
+        font-family: $BarlowBold;
+        color: $font_label;
+        font-size: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .description {
+      color: $font_label;
+      font-size: 11px;
+    }
+  }
+
+  .upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .left {
+      text-align: right;
+      max-width: 150px;
+
+      &.contract {
+        max-width: 300px;
+      }
+
+      .top {
+        color: $secondary;
+        font-family: $BarlowBold;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      p {
+        color: $font_label;
+        font-size: 11px;
+      }
+    }
+
+    .right {
+      i {
+        cursor: pointer;
+        font-size: 16px;
+        color: $secondary;
+      }
+    }
+
+    &.rejected {
+      .top,
+      i {
+        color: $red;
+      }
+    }
+  }
+}
+
+.delete {
+  margin-left: 10px;
+
+  i {
+    color: $red;
+    cursor: pointer;
+  }
+}
+
+.reason {
+  background-color: #ffebeb;
+  padding: 8px;
+  border-radius: 5px;
+  p {
+    font-size: 10px;
+    text-align: justify;
+  }
+}
+
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

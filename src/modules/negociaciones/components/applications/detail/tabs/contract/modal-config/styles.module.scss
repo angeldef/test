@@ -1,0 +1,27 @@
+@import 'src/assets/styles/variables.scss';
+
+.modalBody {
+  padding: 0 20px 10px;
+  width: 550px;
+
+  .subtitle {
+    color: $secondary;
+    font-family: $BarlowBold;
+    font-size: 14px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  .row {
+    margin-bottom: 15px;
+  }
+
+  .fileContainer {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+    background-color: white;
+    overflow: hidden;
+  }
+}

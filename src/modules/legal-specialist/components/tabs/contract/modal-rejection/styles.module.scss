@@ -1,0 +1,16 @@
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+  min-width: 300px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,151 @@
+@import 'src/assets/styles/variables.scss';
+
+.sidebar {
+  transition: flex 0.3s;
+  flex: 0 0 24%;
+  overflow: hidden;
+  position: sticky;
+  top: 20px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .pusher {
+    min-height: 155px;
+  }
+
+  .wrapper {
+    flex: 1 0 auto;
+    padding: 15px;
+
+    &.contraer {
+      .top {
+        justify-content: center;
+        h3 {
+          display: none;
+        }
+      }
+
+      .infoContainer,
+      .pusher {
+        display: none;
+      }
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      .back {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          margin-bottom: 0;
+          font-size: 14px !important;
+        }
+
+        .circle {
+          background-color: $light-gray;
+          padding: 10px;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            color: $secondary;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .infoContainer {
+      .name {
+        font-weight: bold;
+        color: $primary;
+        font-size: 17px;
+        font-family: $BarlowBold;
+      }
+
+      p {
+        font-size: 11px;
+
+        &.position {
+          color: $secondary;
+          margin-top: 4px;
+        }
+      }
+
+      .rfcContainer {
+        display: flex;
+        gap: 8px;
+        border-top: 0.5px solid $secondary;
+        border-bottom: 0.5px solid $secondary;
+        padding: 6px 0;
+        margin: 15px 0;
+
+        .cell {
+          flex: 1 0 50%;
+        }
+      }
+
+      .row {
+        display: flex;
+        gap: 8px;
+        margin: 2px 0;
+
+        & p:first-child {
+          flex: 0 0 50px;
+        }
+      }
+
+      .businessContactContainer {
+        border-top: 0.5px solid $secondary;
+        padding-top: 2px;
+        margin: 10px 0;
+
+        .title {
+          color: $secondary;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  }
+
+  .bottom {
+    background-color: $light-gray;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    span,
+    i {
+      color: $secondary;
+      margin: 0 2px;
+    }
+  }
+
+  .representative {
+    color: $secondary;
+    border-bottom: 0.5px solid $secondary;
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+}

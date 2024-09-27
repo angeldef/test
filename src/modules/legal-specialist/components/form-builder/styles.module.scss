@@ -1,0 +1,29 @@
+@import 'src/assets/styles/variables.scss';
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.htmlelement {
+  color: $secondary !important;
+  font-family: $FSJoeyBold !important;
+  font-size: 18px !important;
+  margin: 0 !important;
+  grid-column: 1/4;
+}
+
+.generalData {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 20px;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 20px;
+}

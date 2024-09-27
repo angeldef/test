@@ -1,0 +1,41 @@
+@import 'src/assets/styles/variables.scss';
+
+.criterio {
+  display: flex;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 6px;
+  padding: 0 16px;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .formGroup {
+      position: relative;
+      margin: 0 !important;
+
+      input {
+        text-align: right;
+      }
+
+      small {
+        position: absolute;
+        bottom: 3px;
+        right: 0;
+        left: unset !important;
+        width: max-content;
+      }
+    }
+  }
+}
+
+.hide {
+  visibility: hidden;
+}

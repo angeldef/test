@@ -1,0 +1,20 @@
+@import 'src/assets/styles/variables.scss';
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+
+  .formContainer {
+    flex: 1 0 auto;
+  }
+}

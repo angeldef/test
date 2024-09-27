@@ -1,0 +1,113 @@
+@import 'src/assets/styles/variables.scss';
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.link {
+  cursor: pointer;
+  padding: 5px 0;
+  text-decoration: underline;
+  color: $primary;
+  margin-bottom: 14px;
+  z-index: 100;
+  position: relative;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .date {
+    color: $primary;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .folio {
+    color: $primary;
+    font-size: 18px;
+    font-family: $BarlowBold;
+    text-align: right;
+  }
+}
+
+.sections {
+  display: flex;
+  gap: 30px;
+}
+
+.section {
+  .title {
+    color: $primary;
+    font-size: 14px;
+  }
+  .row {
+    display: flex;
+    justify-content: unset;
+
+    div {
+      font-size: 11px;
+    }
+    .key {
+      width: 150px;
+    }
+    .desc {
+      font-weight: bold;
+    }
+  }
+}
+
+.desglose {
+  display: flex;
+  justify-content: space-between;
+  .title {
+    color: $primary;
+    font-family: $FSJoeyBold;
+  }
+
+  .right {
+    font-weight: bold;
+    min-width: 420px;
+
+    .item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+
+      &.total div {
+        font-size: 14px;
+        color: black;
+      }
+    }
+
+    div {
+      font-size: 11px;
+      text-align: right;
+    }
+  }
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.address {
+  display: flex;
+
+  div {
+    font-size: 11px;
+  }
+  .key {
+    width: 150px;
+  }
+  .desc {
+    font-weight: bold;
+  }
+}

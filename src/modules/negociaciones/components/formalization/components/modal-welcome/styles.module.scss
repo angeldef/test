@@ -1,0 +1,32 @@
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+  max-width: 400px;
+
+  p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .row {
+    display: flex;
+    margin: 10px 0;
+
+    .left {
+      flex: 1 0 25%;
+      text-align: left;
+    }
+    .right {
+      flex: 1 0 75%;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

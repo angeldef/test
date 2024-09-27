@@ -1,0 +1,33 @@
+@import 'src/assets/styles/variables.scss';
+
+.layout {
+  display: flex;
+  padding: 10px 0;
+
+  .left {
+    flex: 1 0 70%;
+  }
+  .right {
+    flex: 1 0 30%;
+    border-left: 1px solid $secondary;
+    padding-left: 20px;
+  }
+}
+
+.row {
+  margin-bottom: 10px;
+  .title {
+    color: $secondary;
+    font-weight: bold;
+  }
+  .subtitle {
+    color: $primary;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}

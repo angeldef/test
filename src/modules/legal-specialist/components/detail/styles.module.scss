@@ -1,0 +1,249 @@
+@import 'src/assets/styles/variables.scss';
+
+.layout {
+  gap: 20px;
+  height: 100%;
+  display: flex;
+
+  &.contraer {
+    .left {
+      flex: 0 0 14%;
+
+      .wrapper {
+        .top {
+          justify-content: center;
+          h3 {
+            display: none;
+          }
+        }
+
+        .infoContainer {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .left {
+    transition: flex 0.3s;
+    flex: 0 0 24%;
+    overflow: hidden;
+    min-height: calc(100vh - 20px - 20px - 70px);
+    height: min-content;
+    position: sticky;
+    top: 20px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .wrapper {
+      flex: 1 0 auto;
+      padding: 15px;
+      padding-bottom: 4px;
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        .back {
+          display: flex;
+          position: relative;
+          cursor: pointer;
+          gap: 10px;
+          justify-content: center;
+          align-items: center;
+
+          h3 {
+            margin-bottom: 0;
+            font-size: 14px !important;
+          }
+
+          .circle {
+            background-color: $light-gray;
+            padding: 10px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i {
+              color: $secondary;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .infoContainer {
+        .name {
+          font-weight: bold;
+          color: $primary;
+          font-size: 17px;
+          font-family: $BarlowBold;
+        }
+
+        p {
+          font-size: 11px;
+
+          &.position {
+            color: $secondary;
+            margin-top: 4px;
+          }
+        }
+
+        .rfcContainer {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          border-top: 0.5px solid $secondary;
+          border-bottom: 0.5px solid $secondary;
+          padding: 6px 0;
+          margin: 15px 0;
+
+          .cell {
+            flex: 1 0 48%;
+          }
+        }
+
+        .row {
+          display: flex;
+          gap: 8px;
+          margin: 2px 0;
+
+          p {
+            flex: 1 0 50%;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+    }
+
+    .bottom {
+      background-color: $light-gray;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+
+      span,
+      i {
+        color: $secondary;
+        margin: 0 2px;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    width: 1px;
+
+    .topBar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+      border-radius: 9px;
+      background-color: white;
+      padding: 14px;
+      margin-bottom: 20px;
+      width: 100%;
+
+      .leftBar {
+        display: flex;
+        gap: 12px;
+
+        .nameContainer {
+          padding-right: 10px;
+          max-width: 500px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .quotation {
+            font-family: $FSJoeyRegular;
+            span {
+              color: $secondary;
+              font-family: $FSJoeyBold;
+            }
+          }
+
+          .name {
+            font-size: 16px;
+            color: $primary;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .rightBar {
+        text-align: right;
+
+        .status {
+          font-weight: bold;
+          color: $secondary;
+        }
+        p {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .tabTitle {
+      text-align: left;
+      font-family: $BarlowSemiBold;
+      font-size: 12px;
+
+      .badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+
+        i {
+          color: $red;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.rightContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.representative {
+  margin-bottom: 4px;
+  p {
+    color: $secondary;
+  }
+}
+
+.editIcon {
+  background-color: $secondary;
+  color: white;
+  position: absolute;
+  right: 0;
+  padding: 10px 5px 10px 10px;
+  font-size: 18px;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  cursor: pointer;
+}
+
+.person {
+  color: $secondary;
+  font-family: $FSJoeyBold;
+  font-size: 18px;
+  margin: 0;
+}

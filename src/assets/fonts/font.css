@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Sura-Regular';
+    src: local('Sura'), url(./Sura/SuraSans-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Sura-SemiBold';
+    src: local('Sura'), url(./Sura/SuraSans-Seminegrita.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Sura-Bold';
+    src: local('Sura'), url(./Sura/SuraSans-Negrita.otf) format('opentype');
+}

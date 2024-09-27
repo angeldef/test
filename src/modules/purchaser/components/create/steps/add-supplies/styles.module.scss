@@ -1,0 +1,33 @@
+@import 'src/assets/styles/variables.scss';
+
+.layout {
+  display: flex;
+  gap: 20px;
+  .left {
+    flex: 0 0 24%;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+    border-radius: 9px;
+    background-color: white;
+  }
+  .right {
+    flex: 1;
+    width: 1px;
+    position: relative;
+
+    .draft {
+      background-color: $secondary;
+      color: white;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      right: -60px;
+      border-top-left-radius: 9px;
+      border-bottom-left-radius: 9px;
+      cursor: pointer;
+
+      i {
+        font-size: 22px;
+      }
+    }
+  }
+}

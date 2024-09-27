@@ -1,0 +1,132 @@
+parameters:
+  - name: openshift_env
+    type: string
+    default: dev
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: services Conections/template-analysis
+      ref: refs/heads/main
+
+stages:
+  - ${{ if in(variables['Build.SourceBranchName'], 'test', 'dev')}}:
+      - template: sonarqube-jsts.yaml@templates
+        parameters:
+          configFile: sonar-project.properties
+
+  - ${{ if in(variables['Build.SourceBranchName'], 'test', 'dev', 'qa', 'main')}}:
+      - template: checkmarx.yaml@templates
+        parameters:
+          high: '1'
+          medium: '10'
+          low: '30'
+
+  - stage: Deployment
+    displayName: 'Deployment ${{ parameters.openshift_env }}'
+    jobs:
+      - deployment: Deploy
+        displayName: 'Deploy to openshift ${{ parameters.openshift_env }}'
+        environment: $(ENV)
+        pool: $(agentPoolName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                  submodules: true
+
+                - template: oc-setup-template.yml@templates
+                  parameters:
+                    openshift_env: '${{ parameters.openshift_env }}'
+
+                - script: |
+                    oc project $(NAME_SPACE)
+                  displayName: oc project
+                  timeoutInMinutes: 2
+
+                - script: |
+                    oc get secret $(CREDENTIALS_SECRET_NAME) -n $(NAME_SPACE)
+                    if [ $? -eq 0 ]; then
+                        echo "El secreto $(CREDENTIALS_SECRET_NAME) existe"
+                    else
+                        echo "El secreto $(CREDENTIALS_SECRET_NAME) no se encontró"
+                        exit 1
+                    fi
+                  displayName: Validate secret $(CREDENTIALS_SECRET_NAME)
+
+                - script: |
+                    oc get secret $(APP_SECRET_MSAL_AM) -n $(NAME_SPACE)
+                    if [ $? -eq 0 ]; then
+                        echo "El secreto $(APP_SECRET_MSAL_AM) existe"
+
+                        _SECRET_OPAQUE=$(oc get secret $(APP_SECRET_MSAL_AM) -n $(NAME_SPACE) --template='{{.data.key_encrypt_token}}')
+                        if [ -z "$_SECRET_OPAQUE" ] || [ "$_SECRET_OPAQUE" == "<no value>" ]; then
+                          echo "El secreto $(APP_SECRET_MSAL_AM) data.key_encrypt_token no se encontró"
+                          exit 1
+                        else
+                          echo "El secreto $(APP_SECRET_MSAL_AM) data.key_encrypt_token existe"
+                        fi
+
+                        _SECRET_OPAQUE=$(oc get secret $(APP_SECRET_MSAL_AM) -n $(NAME_SPACE) --template='{{.data.x_api_key}}')
+                        if [ -z "$_SECRET_OPAQUE" ] || [ "$_SECRET_OPAQUE" == "<no value>" ]; then
+                          echo "El secreto $(APP_SECRET_MSAL_AM) data.x_api_key no se encontró"
+                          exit 1
+                        else
+                          echo "El secreto $(APP_SECRET_MSAL_AM) data.x_api_key existe"
+                        fi
+
+                    else
+                        echo "El secreto $(APP_SECRET_MSAL_AM) no se encontró"
+                        exit 1
+                    fi
+                  displayName: Validate secret $(APP_SECRET_MSAL_AM)
+
+                - script: |
+                    for file in $(ls openshift)
+                    do
+                      envsubst < openshift/$file > openshift/$file.tmp
+                      mv openshift/$file.tmp  openshift/$file
+                    done
+                    ls openshift/*
+                  displayName: Replace variables in manifests
+
+                - script: |
+                    oc apply -f openshift/1.imageOutput.yaml -n $(NAME_SPACE)
+                  displayName: Create imageOutput
+                  timeoutInMinutes: 2
+                - script: |
+                    oc apply -f openshift/2.buildConfig.yaml -n $(NAME_SPACE) --wait=true
+                  displayName: Apply build config
+                  timeoutInMinutes: 2
+                - script: |
+                    oc start-build $(APP_NAME) --wait --follow -n $(NAME_SPACE)
+                  displayName: run build
+                  timeoutInMinutes: 10
+                - script: |
+                    oc apply -f openshift/3.deployment.yaml -n $(NAME_SPACE)
+                  displayName: Apply deployment
+                  timeoutInMinutes: 2
+                - script: |
+                    sleep 15
+                  displayName: 'Delay'
+                - script: |
+                    oc rollout status -w deployment/$(APP_NAME) -n $(NAME_SPACE)
+                  displayName: status deployment
+                  timeoutInMinutes: 2
+                - script: |
+                    oc logs deployment/$(APP_NAME) -n $(NAME_SPACE)
+                  displayName: initial deployment log
+                  timeoutInMinutes: 2
+                - script: |
+                    oc apply -f openshift/4.service.yaml -n $(NAME_SPACE)
+                  displayName: Apply service
+                  timeoutInMinutes: 2
+                - script: |
+                    ROUTE_EXISTS=$(oc get route $APP_NAME -o name --ignore-not-found)
+                    if [ -n "$ROUTE_EXISTS" ]; then
+                      oc delete route $APP_NAME
+                    fi
+                    oc apply -f openshift/5.route.yaml -n $(NAME_SPACE)
+                  displayName: 'Apply route'

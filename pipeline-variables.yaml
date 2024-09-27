@@ -1,0 +1,12 @@
+variables:
+  SONAR_PROJECT_KEY: $(Build.Repository.Name)
+  SONAR_PROJECT_NAME: $(Build.Repository.Name)
+  GIT_URI: $(Build.Repository.Uri)
+  GIT_BRANCH: $(Build.SourceBranchName)
+  APP_NAME: front-interno
+  APP_NAME_LABEL: front
+  DOCKERFILE: dockerfiles/Dockerfile
+  CREDENTIALS_SECRET_NAME: git-credentials
+  TZ: CST6
+  HTTP_PORT: 3000
+  APP_SECRET_MSAL_AM: msal-am

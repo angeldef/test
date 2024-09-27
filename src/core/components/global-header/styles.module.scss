@@ -1,0 +1,42 @@
+@import 'src/assets/styles/variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 60px;
+  background-color: $primary;
+
+  div,
+  svg {
+    color: white;
+  }
+
+  .logo {
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    .info {
+      text-align: right;
+      line-height: 15px;
+      font-size: 12px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+        font-size: 22px;
+        color: white !important;
+      }
+    }
+  }
+}

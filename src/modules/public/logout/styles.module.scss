@@ -1,0 +1,37 @@
+@import 'src/assets/styles/variables.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $light-gray;
+
+  .centered {
+    display: flex;
+    border-radius: 50px;
+    padding: 50px;
+
+    background-color: white;
+    box-shadow: 0px 3px 6px #00000029;
+    gap: 20px;
+
+    .col {
+      width: 300px;
+    }
+
+    .title {
+      font-family: $FSJoeyMedium;
+      color: $primary;
+      font-size: 25px;
+    }
+    p {
+      margin-top: 15px;
+      word-break: break-word;
+    }
+    .img {
+      width: 300px;
+    }
+  }
+}

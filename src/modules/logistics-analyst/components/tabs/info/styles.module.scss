@@ -1,0 +1,14 @@
+@import 'src/assets/styles/variables.scss';
+
+.subtitle {
+  font-size: 13px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.accordions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

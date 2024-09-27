@@ -1,0 +1,57 @@
+@import 'src/assets/styles/variables.scss';
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0;
+
+  .text,
+  .title {
+    flex: 1 0 60%;
+  }
+
+  .title {
+    color: $secondary;
+    font-family: $BarlowBold;
+  }
+
+  .text {
+    font-size: 11px;
+  }
+
+  .col {
+    flex: 1 0 10%;
+    font-size: 10px;
+    color: $font_label;
+    font-weight: bold;
+    text-align: center;
+
+    &.answer {
+      color: $secondary;
+      font-family: $BarlowBold;
+      font-size: 14px;
+    }
+  }
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

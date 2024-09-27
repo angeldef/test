@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    include:
+      - test
+      - dev
+      - qa
+      - main
+
+variables:
+  - group: poolnames
+  - template: pipeline-variables.yaml
+  - template: pipeline-variables-test.yaml
+  - template: pipeline-variables-dev.yaml
+  - template: pipeline-variables-qa.yaml
+  - template: pipeline-variables-prod.yaml
+
+extends:
+  template: pipeline-deploy-openshift.yaml
+  parameters:
+    openshift_env: ${{variables.ENV}}

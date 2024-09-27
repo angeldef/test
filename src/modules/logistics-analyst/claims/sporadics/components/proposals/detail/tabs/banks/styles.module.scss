@@ -1,0 +1,98 @@
+@import 'src/assets/styles/variables.scss';
+
+.searchRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  align-items: center;
+}
+
+.statusActions {
+  align-items: center;
+  width: 100%;
+
+  i {
+    color: #c7c7c7;
+    font-size: 15px;
+  }
+}
+
+.accepted i {
+  color: #52c41a;
+}
+.rejected i {
+  color: $red;
+}
+
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.modalBodyConfirm {
+  padding-bottom: 5px;
+  min-width: 300px;
+
+  .modalTitle {
+    text-align: left !important;
+  }
+
+  .titleSecondary {
+    color: $secondary;
+    font-family: $BarlowBold;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .rejected {
+    margin-top: 15px;
+    p {
+      text-align: left;
+    }
+  }
+
+  .bold {
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.buttonsConfirm {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+
+  &.centered {
+    justify-content: center;
+  }
+}
+
+.listRejected {
+  text-align: left;
+  margin-top: 5px;
+
+  i {
+    color: $red;
+    margin-right: 10px;
+  }
+}
+
+.active {
+  font-weight: bold;
+  color: $secondary;
+}

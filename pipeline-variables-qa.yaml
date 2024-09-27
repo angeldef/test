@@ -1,0 +1,18 @@
+variables:
+  ${{ if contains(variables['Build.SourceBranchName'], 'qa')}}:
+    ENV: qa
+    NAME_SPACE: abastecimiento-qa
+    OPENSHIFT_DOMAIN: $(domainOpenshiftQa)
+    DOCKERFILE: dockerfiles/Dockerfile_qa
+    VITE_API_MANAGEMENT_URL: https://sura-apimanagement-qa.azure-api.net/token/v1/abastecimiento
+    VITE_API_BASE_URL_CONFIG: https://sura-apimanagement-qa.azure-api.net/api-supply-config/v1
+    VITE_URL_EMAIL_INVITATION: https://abastecimiento-qa.segurossura.com.mx/proveedores/enlace-publico
+    VITE_URL_EMAIL_INVITATION_SPORADICS: https://abastecimiento-qa.segurossura.com.mx/proveedores/esporadico/enlace-publico
+    VITE_URL_PORTAL_OF_PORTALS: https://suramericana.sharepoint.com/sites/mx/portal-portales-dev
+    VITE_CREATE_NECESITY_SLUG: abastecimiento-crear-necesidad-qa
+    VITE_CONFIG_NECESITY_SLUG: abastecimiento-configuracion-necesidad-qa
+    VITE_FORMALIZATION_NEGOTIATOR_SLUG: abastecimiento-negociador-formalizacion-qa
+    VITE_IMG_SLUG: abastecimiento-img-qa
+    VITE_UPDATE_SUPPLIER_SLUG: abastecimiento-analista-actualizar-proveedor-qa
+    VITE_API_CATALOGS: https://sura-apimanagement-qa.azure-api.net/api-catalogues/v1
+    VITE_PURCHASE_ORDER_SLUG: abastecimiento-orden-compra-qa

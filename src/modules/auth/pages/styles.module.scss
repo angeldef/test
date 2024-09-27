@@ -1,0 +1,17 @@
+@import 'src/assets/styles/variables.scss';
+
+.modalBody {
+  text-align: center;
+  padding-bottom: 5px;
+
+  p {
+    font-size: 14px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

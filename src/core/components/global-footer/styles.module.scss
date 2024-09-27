@@ -1,0 +1,78 @@
+@import 'src/assets/styles/variables.scss';
+
+.footer {
+  // height: 200px;
+  width: 100%;
+  color: $primary;
+  padding: 20px 60px;
+  font-size: 12px;
+  position: relative;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid $font_placeholder;
+    border-bottom: 2px solid $font_placeholder;
+    padding: 15px 0;
+
+    .logo {
+      width: 70px;
+    }
+
+    .info {
+      display: flex;
+      gap: 50px;
+
+      .item {
+        line-height: 15px;
+        text-align: right;
+
+        p {
+          font-size: 13px;
+          color: $gray;
+        }
+
+        a {
+          color: $gray;
+        }
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+
+    div {
+      color: $gray;
+    }
+
+    .nets {
+      i {
+        font-size: 22px;
+        margin-left: 18px;
+        color: $gray;
+      }
+    }
+  }
+}
+
+.ellipsis {
+  color: #e0e5f2;
+  position: absolute;
+  top: -70px;
+  padding: 8px;
+
+  i {
+    font-size: 55px;
+  }
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}
